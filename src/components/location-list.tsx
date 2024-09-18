@@ -12,6 +12,7 @@ interface LocationsListProps {
   onChange: (value: string) => void;
   placeholder?: string;
   loading: boolean;
+  enableQuery?: boolean;
 }
 
 export function LocationsList({
@@ -21,6 +22,7 @@ export function LocationsList({
   onChange,
   placeholder,
   loading,
+  enableQuery = false,
 }: LocationsListProps) {
   const [querySearch, setQuerySearch] = useState<string>("");
 
@@ -58,11 +60,13 @@ export function LocationsList({
         )}
         {locationsToRender && (
           <div className="flex flex-col gap-4 flex-1">
-            <Input
-              placeholder="Search..."
-              value={querySearch}
-              onChange={onInputChange}
-            />
+            {enableQuery && (
+              <Input
+                placeholder="Search..."
+                value={querySearch}
+                onChange={onInputChange}
+              />
+            )}
             {!locationsToRender.length && (
               <p className="text-center">No {title.toLowerCase()} match</p>
             )}
