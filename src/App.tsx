@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { Button } from "./components/ui/button";
-import { Ubigeo } from "./types/ubigeo";
+import { type Ubigeo } from "./types/ubigeo";
 import { getRegions } from "./lib/api/getRegions";
 import { getProvinces } from "./lib/api/getProvinces";
 import { getDistricts } from "./lib/api/getDistricts";
